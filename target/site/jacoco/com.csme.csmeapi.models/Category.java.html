@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Category.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csme-api</a> &gt; <a href="index.source.html" class="el_package">com.csme.csmeapi.models</a> &gt; <span class="el_source">Category.java</span></div><h1>Category.java</h1><pre class="source lang-java linenums">package com.csme.csmeapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+
+/**
+ * Category
+ */
+@Validated
+@javax.annotation.Generated(value = &quot;io.swagger.codegen.v3.generators.java.SpringCodegen&quot;, date = &quot;2020-12-21T12:17:35.703+04:00[Asia/Muscat]&quot;)
+<span class="nc" id="L17">public class Category   {</span>
+<span class="nc" id="L18">  @JsonProperty(&quot;id&quot;)</span>
+  private Long id = null;
+
+<span class="nc" id="L21">  @JsonProperty(&quot;name&quot;)</span>
+  private String name = null;
+
+  public Category id(Long id) {
+<span class="nc" id="L25">    this.id = id;</span>
+<span class="nc" id="L26">    return this;</span>
+  }
+
+  /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public Long getId() {
+<span class="nc" id="L36">    return id;</span>
+  }
+
+  public void setId(Long id) {
+<span class="nc" id="L40">    this.id = id;</span>
+<span class="nc" id="L41">  }</span>
+
+  public Category name(String name) {
+<span class="nc" id="L44">    this.name = name;</span>
+<span class="nc" id="L45">    return this;</span>
+  }
+
+  /**
+   * Get name
+   * @return name
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public String getName() {
+<span class="nc" id="L55">    return name;</span>
+  }
+
+  public void setName(String name) {
+<span class="nc" id="L59">    this.name = name;</span>
+<span class="nc" id="L60">  }</span>
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L66">      return true;</span>
+    }
+<span class="nc bnc" id="L68" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L69">      return false;</span>
+    }
+<span class="nc" id="L71">    Category category = (Category) o;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    return Objects.equals(this.id, category.id) &amp;&amp;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        Objects.equals(this.name, category.name);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L78">    return Objects.hash(id, name);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L83">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L84">    sb.append(&quot;class Category {\n&quot;);</span>
+    
+<span class="nc" id="L86">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L87">    sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L88">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L89">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+<span class="nc bnc" id="L97" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L98">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L100">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

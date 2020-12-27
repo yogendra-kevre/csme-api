@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Order.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csme-api</a> &gt; <a href="index.source.html" class="el_package">com.csme.csmeapi.models</a> &gt; <span class="el_source">Order.java</span></div><h1>Order.java</h1><pre class="source lang-java linenums">package com.csme.csmeapi.models;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.validation.annotation.Validated;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+
+/**
+ * Order
+ */
+@Validated
+@javax.annotation.Generated(value = &quot;io.swagger.codegen.v3.generators.java.SpringCodegen&quot;, date = &quot;2020-12-21T12:17:35.703+04:00[Asia/Muscat]&quot;)
+<span class="nc" id="L18">public class Order   {</span>
+<span class="nc" id="L19">  @JsonProperty(&quot;id&quot;)</span>
+  private Long id = null;
+
+<span class="nc" id="L22">  @JsonProperty(&quot;petId&quot;)</span>
+  private Long petId = null;
+
+<span class="nc" id="L25">  @JsonProperty(&quot;quantity&quot;)</span>
+  private Integer quantity = null;
+
+<span class="nc" id="L28">  @JsonProperty(&quot;shipDate&quot;)</span>
+  private String shipDate = null;
+
+  /**
+   * Order Status
+   */
+<span class="nc" id="L34">  public enum StatusEnum {</span>
+<span class="nc" id="L35">    PLACED(&quot;placed&quot;),</span>
+    
+<span class="nc" id="L37">    APPROVED(&quot;approved&quot;),</span>
+    
+<span class="nc" id="L39">    DELIVERED(&quot;delivered&quot;);</span>
+
+    private String value;
+
+<span class="nc" id="L43">    StatusEnum(String value) {</span>
+<span class="nc" id="L44">      this.value = value;</span>
+<span class="nc" id="L45">    }</span>
+
+    @Override
+    @JsonValue
+    public String toString() {
+<span class="nc" id="L50">      return String.valueOf(value);</span>
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String text) {
+<span class="nc bnc" id="L55" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (String.valueOf(b.value).equals(text)) {</span>
+<span class="nc" id="L57">          return b;</span>
+        }
+      }
+<span class="nc" id="L60">      return null;</span>
+    }
+  }
+<span class="nc" id="L63">  @JsonProperty(&quot;status&quot;)</span>
+  private StatusEnum status = null;
+
+<span class="nc" id="L66">  @JsonProperty(&quot;complete&quot;)</span>
+<span class="nc" id="L67">  private Boolean complete = false;</span>
+
+  public Order id(Long id) {
+<span class="nc" id="L70">    this.id = id;</span>
+<span class="nc" id="L71">    return this;</span>
+  }
+
+  /**
+   * Get id
+   * @return id
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public Long getId() {
+<span class="nc" id="L81">    return id;</span>
+  }
+
+  public void setId(Long id) {
+<span class="nc" id="L85">    this.id = id;</span>
+<span class="nc" id="L86">  }</span>
+
+  public Order petId(Long petId) {
+<span class="nc" id="L89">    this.petId = petId;</span>
+<span class="nc" id="L90">    return this;</span>
+  }
+
+  /**
+   * Get petId
+   * @return petId
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public Long getPetId() {
+<span class="nc" id="L100">    return petId;</span>
+  }
+
+  public void setPetId(Long petId) {
+<span class="nc" id="L104">    this.petId = petId;</span>
+<span class="nc" id="L105">  }</span>
+
+  public Order quantity(Integer quantity) {
+<span class="nc" id="L108">    this.quantity = quantity;</span>
+<span class="nc" id="L109">    return this;</span>
+  }
+
+  /**
+   * Get quantity
+   * @return quantity
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public Integer getQuantity() {
+<span class="nc" id="L119">    return quantity;</span>
+  }
+
+  public void setQuantity(Integer quantity) {
+<span class="nc" id="L123">    this.quantity = quantity;</span>
+<span class="nc" id="L124">  }</span>
+
+  public Order shipDate(String shipDate) {
+<span class="nc" id="L127">    this.shipDate = shipDate;</span>
+<span class="nc" id="L128">    return this;</span>
+  }
+
+  /**
+   * Get shipDate
+   * @return shipDate
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public String getShipDate() {
+<span class="nc" id="L138">    return shipDate;</span>
+  }
+
+  public void setShipDate(String shipDate) {
+<span class="nc" id="L142">    this.shipDate = shipDate;</span>
+<span class="nc" id="L143">  }</span>
+
+  public Order status(StatusEnum status) {
+<span class="nc" id="L146">    this.status = status;</span>
+<span class="nc" id="L147">    return this;</span>
+  }
+
+  /**
+   * Order Status
+   * @return status
+  **/
+  @ApiModelProperty(value = &quot;Order Status&quot;)
+  
+    public StatusEnum getStatus() {
+<span class="nc" id="L157">    return status;</span>
+  }
+
+  public void setStatus(StatusEnum status) {
+<span class="nc" id="L161">    this.status = status;</span>
+<span class="nc" id="L162">  }</span>
+
+  public Order complete(Boolean complete) {
+<span class="nc" id="L165">    this.complete = complete;</span>
+<span class="nc" id="L166">    return this;</span>
+  }
+
+  /**
+   * Get complete
+   * @return complete
+  **/
+  @ApiModelProperty(value = &quot;&quot;)
+  
+    public Boolean isComplete() {
+<span class="nc" id="L176">    return complete;</span>
+  }
+
+  public void setComplete(Boolean complete) {
+<span class="nc" id="L180">    this.complete = complete;</span>
+<span class="nc" id="L181">  }</span>
+
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+<span class="nc bnc" id="L186" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L187">      return true;</span>
+    }
+<span class="nc bnc" id="L189" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L190">      return false;</span>
+    }
+<span class="nc" id="L192">    Order order = (Order) o;</span>
+<span class="nc bnc" id="L193" title="All 2 branches missed.">    return Objects.equals(this.id, order.id) &amp;&amp;</span>
+<span class="nc bnc" id="L194" title="All 2 branches missed.">        Objects.equals(this.petId, order.petId) &amp;&amp;</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">        Objects.equals(this.quantity, order.quantity) &amp;&amp;</span>
+<span class="nc bnc" id="L196" title="All 2 branches missed.">        Objects.equals(this.shipDate, order.shipDate) &amp;&amp;</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">        Objects.equals(this.status, order.status) &amp;&amp;</span>
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        Objects.equals(this.complete, order.complete);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L203">    return Objects.hash(id, petId, quantity, shipDate, status, complete);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L208">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L209">    sb.append(&quot;class Order {\n&quot;);</span>
+    
+<span class="nc" id="L211">    sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L212">    sb.append(&quot;    petId: &quot;).append(toIndentedString(petId)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L213">    sb.append(&quot;    quantity: &quot;).append(toIndentedString(quantity)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L214">    sb.append(&quot;    shipDate: &quot;).append(toIndentedString(shipDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L215">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L216">    sb.append(&quot;    complete: &quot;).append(toIndentedString(complete)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L217">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L218">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(java.lang.Object o) {
+<span class="nc bnc" id="L226" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L227">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L229">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

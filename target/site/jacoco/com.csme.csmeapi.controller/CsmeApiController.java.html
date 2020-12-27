@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CsmeApiController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csme-api</a> &gt; <a href="index.source.html" class="el_package">com.csme.csmeapi.controller</a> &gt; <span class="el_source">CsmeApiController.java</span></div><h1>CsmeApiController.java</h1><pre class="source lang-java linenums">package com.csme.csmeapi.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+
+import com.csme.csmeapi.api.PetApi;
+import com.csme.csmeapi.exception.CustomBodyValidationException;
+import com.csme.csmeapi.exception.CustomValidationException;
+import com.csme.csmeapi.exception.ErrorCode;
+import com.csme.csmeapi.exception.ErrorMessage;
+import com.csme.csmeapi.service.CsmeService;
+import com.csme.csmeapi.dto.Pet;
+
+@Controller
+<span class="fc" id="L22">public class CsmeApiController implements PetApi{</span>
+
+	@Autowired
+	private CsmeService csmeService;
+	
+	@Autowired
+	HttpServletRequest httpServletRequest;
+	
+
+	@Override
+	public ResponseEntity&lt;Pet&gt; addPet(Pet body) throws CustomBodyValidationException {
+<span class="nc" id="L33">		 List&lt;String&gt; errorList=validateBody(body);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">		if(!errorList.isEmpty())</span>
+<span class="nc" id="L35">			throw new CustomBodyValidationException(errorList);</span>
+		
+<span class="nc" id="L37">		return new ResponseEntity&lt;Pet&gt;(body,HttpStatus.CREATED);</span>
+	}
+	
+	@Override
+	public ResponseEntity&lt;Pet&gt; getPetForId(Long petId,String userId) throws CustomValidationException {
+		
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">		if (userId == null)</span>
+<span class="nc" id="L44">			throw new CustomValidationException(ErrorCode.CSME_CE_1001); </span>
+<span class="fc" id="L45">		Pet p=csmeService.getPetById(petId);</span>
+<span class="fc" id="L46">		return new ResponseEntity&lt;Pet&gt;(p,HttpStatus.OK);</span>
+		
+	}
+
+	private List&lt;String&gt; validateBody(Pet pet){
+<span class="nc" id="L51">		List&lt;String&gt; errorList=new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">		if(pet.getId()&gt;100)</span>
+<span class="nc" id="L53">			errorList.add(&quot;Id can not be greater than 100&quot;);</span>
+<span class="nc bnc" id="L54" title="All 4 branches missed.">		if(pet.getName()==null||pet.getName().isEmpty())</span>
+<span class="nc" id="L55">			errorList.add(&quot;name can not be empty&quot;);</span>
+		
+<span class="nc" id="L57">		return errorList;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Pet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csme-api</a> &gt; <a href="index.source.html" class="el_package">com.csme.csmeapi.dto</a> &gt; <span class="el_source">Pet.java</span></div><h1>Pet.java</h1><pre class="source lang-java linenums">package com.csme.csmeapi.dto;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import com.csme.csmeapi.models.Category;
+import com.csme.csmeapi.models.Tag;
+
+<span class="fc" id="L10">public class Pet {</span>
+
+<span class="fc" id="L12">	private Long id = null;</span>
+
+<span class="fc" id="L14">	private Category category = null;</span>
+	
+<span class="fc" id="L16">	private String name = null;</span>
+
+<span class="fc" id="L18">	private List&lt;String&gt; functionNames = null;</span>
+
+<span class="fc" id="L20">	private List&lt;Tag&gt; tags = null;</span>
+
+<span class="fc" id="L22">	private StatusEnum status = null;</span>
+
+<span class="fc" id="L24">	public enum StatusEnum {</span>
+<span class="fc" id="L25">		AVAILABLE(&quot;available&quot;),</span>
+
+<span class="fc" id="L27">		PENDING(&quot;pending&quot;),</span>
+
+<span class="fc" id="L29">		SOLD(&quot;sold&quot;);</span>
+
+		private String value;
+
+<span class="fc" id="L33">		StatusEnum(String value) {</span>
+<span class="fc" id="L34">			this.value = value;</span>
+<span class="fc" id="L35">		}</span>
+
+		@Override
+		public String toString() {
+<span class="nc" id="L39">			return String.valueOf(value);</span>
+		}
+
+		public static StatusEnum fromValue(String text) {
+<span class="nc bnc" id="L43" title="All 2 branches missed.">			for (StatusEnum b : StatusEnum.values()) {</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">				if (String.valueOf(b.value).equals(text)) {</span>
+<span class="nc" id="L45">					return b;</span>
+				}
+			}
+<span class="nc" id="L48">			return null;</span>
+		}
+	}
+
+	public Pet id(Long id) {
+<span class="nc" id="L53">		this.id = id;</span>
+<span class="nc" id="L54">		return this;</span>
+	}
+
+	public Long getId() {
+<span class="fc" id="L58">		return id;</span>
+	}
+
+	public void setId(Long id) {
+<span class="fc" id="L62">		this.id = id;</span>
+<span class="fc" id="L63">	}</span>
+
+	public Pet category(Category category) {
+<span class="nc" id="L66">		this.category = category;</span>
+<span class="nc" id="L67">		return this;</span>
+	}
+
+	public Category getCategory() {
+<span class="fc" id="L71">		return category;</span>
+	}
+
+	public void setCategory(Category category) {
+<span class="nc" id="L75">		this.category = category;</span>
+<span class="nc" id="L76">	}</span>
+
+	public Pet name(String name) {
+<span class="nc" id="L79">		this.name = name;</span>
+<span class="nc" id="L80">		return this;</span>
+	}
+
+	public String getName() {
+<span class="fc" id="L84">		return name;</span>
+	}
+
+	public void setName(String name) {
+<span class="nc" id="L88">		this.name = name;</span>
+<span class="nc" id="L89">	}</span>
+
+	public Pet functionNames(List&lt;String&gt; functionNames) {
+<span class="nc" id="L92">		this.functionNames = functionNames;</span>
+<span class="nc" id="L93">		return this;</span>
+	}
+
+	public Pet addFunctionNamesItem(String functionNamesItem) {
+<span class="nc bnc" id="L97" title="All 2 branches missed.">		if (this.functionNames == null) {</span>
+<span class="nc" id="L98">			this.functionNames = new ArrayList&lt;String&gt;();</span>
+		}
+<span class="nc" id="L100">		this.functionNames.add(functionNamesItem);</span>
+<span class="nc" id="L101">		return this;</span>
+	}
+
+	public List&lt;String&gt; getFunctionNames() {
+<span class="fc" id="L105">		return functionNames;</span>
+	}
+
+	public void setFunctionNames(List&lt;String&gt; functionNames) {
+<span class="nc" id="L109">		this.functionNames = functionNames;</span>
+<span class="nc" id="L110">	}</span>
+
+	public Pet tags(List&lt;Tag&gt; tags) {
+<span class="nc" id="L113">		this.tags = tags;</span>
+<span class="nc" id="L114">		return this;</span>
+	}
+
+	public Pet addTagsItem(Tag tagsItem) {
+<span class="nc bnc" id="L118" title="All 2 branches missed.">		if (this.tags == null) {</span>
+<span class="nc" id="L119">			this.tags = new ArrayList&lt;Tag&gt;();</span>
+		}
+<span class="nc" id="L121">		this.tags.add(tagsItem);</span>
+<span class="nc" id="L122">		return this;</span>
+	}
+
+	public List&lt;Tag&gt; getTags() {
+<span class="fc" id="L126">		return tags;</span>
+	}
+
+	public void setTags(List&lt;Tag&gt; tags) {
+<span class="nc" id="L130">		this.tags = tags;</span>
+<span class="nc" id="L131">	}</span>
+
+	public Pet status(StatusEnum status) {
+<span class="nc" id="L134">		this.status = status;</span>
+<span class="nc" id="L135">		return this;</span>
+	}
+
+	public StatusEnum getStatus() {
+<span class="fc" id="L139">		return status;</span>
+	}
+
+	public void setStatus(StatusEnum status) {
+<span class="nc" id="L143">		this.status = status;</span>
+<span class="nc" id="L144">	}</span>
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+<span class="nc bnc" id="L148" title="All 2 branches missed.">		if (this == o) {</span>
+<span class="nc" id="L149">			return true;</span>
+		}
+<span class="nc bnc" id="L151" title="All 4 branches missed.">		if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L152">			return false;</span>
+		}
+<span class="nc" id="L154">		Pet pet = (Pet) o;</span>
+<span class="nc bnc" id="L155" title="All 4 branches missed.">		return Objects.equals(this.id, pet.id) &amp;&amp; Objects.equals(this.category, pet.category)</span>
+<span class="nc bnc" id="L156" title="All 4 branches missed.">				&amp;&amp; Objects.equals(this.name, pet.name) &amp;&amp; Objects.equals(this.functionNames, pet.functionNames)</span>
+<span class="nc bnc" id="L157" title="All 4 branches missed.">				&amp;&amp; Objects.equals(this.tags, pet.tags) &amp;&amp; Objects.equals(this.status, pet.status);</span>
+	}
+
+	@Override
+	public int hashCode() {
+<span class="nc" id="L162">		return Objects.hash(id, category, name, functionNames, tags, status);</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="nc" id="L167">		StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L168">		sb.append(&quot;class Pet {\n&quot;);</span>
+
+<span class="nc" id="L170">		sb.append(&quot;    id: &quot;).append(toIndentedString(id)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L171">		sb.append(&quot;    category: &quot;).append(toIndentedString(category)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L172">		sb.append(&quot;    name: &quot;).append(toIndentedString(name)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L173">		sb.append(&quot;    functionNames: &quot;).append(toIndentedString(functionNames)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L174">		sb.append(&quot;    tags: &quot;).append(toIndentedString(tags)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L175">		sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L176">		sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L177">		return sb.toString();</span>
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+<span class="nc bnc" id="L185" title="All 2 branches missed.">		if (o == null) {</span>
+<span class="nc" id="L186">			return &quot;null&quot;;</span>
+		}
+<span class="nc" id="L188">		return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

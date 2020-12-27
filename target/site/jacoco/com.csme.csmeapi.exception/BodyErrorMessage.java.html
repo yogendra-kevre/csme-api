@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BodyErrorMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">csme-api</a> &gt; <a href="index.source.html" class="el_package">com.csme.csmeapi.exception</a> &gt; <span class="el_source">BodyErrorMessage.java</span></div><h1>BodyErrorMessage.java</h1><pre class="source lang-java linenums">package com.csme.csmeapi.exception;
+
+import java.util.List;
+
+public class BodyErrorMessage {
+
+	
+	private int errorCode;
+	private List&lt;String&gt; message;
+	
+	public BodyErrorMessage(int errorCode, List&lt;String&gt; message) {
+<span class="nc" id="L12">		super();</span>
+<span class="nc" id="L13">		this.errorCode = errorCode;</span>
+<span class="nc" id="L14">		this.message = message;</span>
+<span class="nc" id="L15">	}</span>
+	
+	public int getErrorCode() {
+<span class="nc" id="L18">		return errorCode;</span>
+	}
+	public void setErrorCode(int errorCode) {
+<span class="nc" id="L21">		this.errorCode = errorCode;</span>
+<span class="nc" id="L22">	}</span>
+	public List&lt;String&gt; getMessage() {
+<span class="nc" id="L24">		return message;</span>
+	}
+	public void setMessage(List&lt;String&gt; message) {
+<span class="nc" id="L27">		this.message = message;</span>
+<span class="nc" id="L28">	}</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
